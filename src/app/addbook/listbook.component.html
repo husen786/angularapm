@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header">
+    List Book
+  </div>
+  <div class="card-body">
+      <div class='row'>
+          <div class='col-md-2'>Filter by:</div>
+          <div class='col-md-4'>
+            <input type='text'
+                   [(ngModel)]='listFilter' />
+          </div>
+        </div>
+        Filterd By:{{listFilter}}
+</div>
+    <table class="table">
+      <thead class="thead-dark">
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Edit</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of filteredBooks">
+          <td>{{book.Title}}</td>
+          <td>{{book.Author}}</td>
+          <td>{{book.Year}}</td>
+          <td>
+            <a class="btn btn-primary"
+            [routerLink]="['/booklist', book.id,'edit']"
+            >
+              Edit
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
